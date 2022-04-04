@@ -180,10 +180,12 @@ window.addEventListener('scroll', scrollActive);
 /*==================== REMOVE MENU MOBILE ====================*/
 const navLink = document.querySelectorAll('.menu__link')
 function linkAction(){
-	const navMenu = document.querySelector('.menu');
-	iconMenu.classList.remove('active');
-	menuBody.classList.remove('show-menu');
-	document.body.classList.toggle('lock');
+	if (window.innerWidth <= 991.98) {
+		const navMenu = document.querySelector('.menu');
+		iconMenu.classList.remove('active');
+		menuBody.classList.remove('show-menu');
+		document.body.classList.remove('lock');
+	}
 }
 navLink.forEach(n => n.addEventListener('click', linkAction))
 
@@ -270,64 +272,3 @@ inputs.forEach(input => {
 	input.addEventListener("blur",remfocus)
 })
 
-/*==================== SCROLL REVEAL ANIMATION ====================*/
-const sr = ScrollReveal({
-	distance: '50px',
-	duration: 1500,
-	// reset: true,
-	mobile: false
-});
-
-sr.reveal(`.home__title, .home__subtitle, .sale__label, .sale__title, .sale__button, .buy-info__text, .buy__button, .selection__button, .investors__button `, {
-	origin: 'bottom',
-	interval: 200,
-	opacity: 0,
-});
-sr.reveal(`.home__button`, {
-	origin: 'bottom',
-	opacity: 0,
-});
-sr.reveal(`.home__list-item, .communication__list li, .map__list-item, .buy-info__list li, .law__item`, {
-	origin: 'left',
-	interval: 200,
-	opacity: 0,
-});
-sr.reveal(`.block-heading__title, .block-heading__subtitle, .include-places p, .include-places__list, .investors__card `, {
-	origin: 'bottom',
-	interval: 100,
-	opacity: 0,
-});
-sr.reveal(`.advantages__item`, {
-	origin: 'left',
-	scale: 0,
-	interval: 200,
-	opacity: 0,
-});
-sr.reveal(`.communication__label, .investors__label`, {
-	origin: 'bottom',
-	interval: 100,
-	opacity: 0,
-});
-sr.reveal(`.video-block__box `, {
-	origin: 'top',
-	interval: 100,
-	opacity: 0,
-	scale: 0.5
-});
-sr.reveal(`.plan__item`, {
-	origin: 'bottom',
-	interval: 200,
-	opacity: 0
-});
-sr.reveal(`.item-contacts__title, .item-contacts__phone, .item-contacts__address, .item-contacts__link`, {
-	origin: 'bottom',
-	distance: '20px',
-	interval: 200,
-	opacity: 0,
-});
-sr.reveal(`.footer__logo .logo, .footer__text, .phone-footer__link, .phone-footer__label, .phone-footer__button, .footer__copy`, {
-	origin: 'bottom',
-	distance: '50px',
-	interval: 100,
-	opacity: 0,
-});
