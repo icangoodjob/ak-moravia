@@ -1,0 +1,98 @@
+.btn {
+	min-height: 56px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	padding: 15px;
+	background: $brownColor;
+	border-radius: 30px;
+	color: $whiteColor;
+	font-size: 19px;
+	line-height: math.div(23, 19) * 100%;
+	transition: all .2s ease 0s;
+	&:hover{
+		background: #cb8a44;
+	}
+}
+.block-heading {
+	position: relative;
+	z-index: 4;
+	text-align: center;
+	margin-bottom: 28px;
+	// .block-heading__title
+	&__title {
+		font-size: 36px;
+		line-height: math.div(42, 36) * 100%;
+		&:not(:last-child){
+			margin-bottom: 28px;
+		}
+	}
+	// .block-heading__subtitle
+	&__subtitle {
+		font-size: 21px;
+		line-height: math.div(25, 21) * 100%;
+		font-weight: 300;
+	}
+}
+
+@media screen and (max-width: map-get($breakpoints, 'md')) {
+	.block-heading__title{
+		font-size: 26px;
+	}
+	.block-heading__subtitle{
+		font-size: 19px;
+	}
+	.block-heading{
+		margin-bottom: 25px;
+	}
+	.block-heading__title:not(:last-child) {
+		margin-bottom: 25px;
+	}
+}
+
+.scroll-top{
+	position: fixed;
+	z-index: 19;
+	left: 49px;
+	bottom: -10%;
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	background: #FFFFFF;
+	border: 1px solid $brownColor;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transition: all .3s ease 0s;
+	padding: 11px;
+	visibility: hidden;
+	&::before{
+		font-size: 22px;
+		color: $brownColor;
+		transition: all .3s ease 0s;
+	}
+	&.show-scroll{
+		bottom: 10%;
+		visibility: visible;
+	}
+	@media (any-hover: hover){
+		&:hover{
+			background: $brownColor;
+		}
+		&:hover::before{
+			color: $whiteColor;
+		}
+	}
+}
+
+@media screen and (max-width: map-get($breakpoints, 'lg')) {
+	.scroll-top{
+		left: 15px;
+		width: 40px;
+		height: 40px;
+		&.show-scroll{
+			bottom: 5%;
+		}
+	}
+}

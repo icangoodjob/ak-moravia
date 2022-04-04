@@ -1,0 +1,129 @@
+/* MAP */
+.map {
+	padding: 93px 0 80px;
+	// .map__body
+	&__body {
+		display: flex;
+		padding-left: max(15px, calc((100% - 1610px) / 2));
+		background: #FFF7EF;
+	}
+	// .map__info
+	&__info {
+		flex-shrink: 0;
+		padding: 50px 70px 50px 15px;
+	}
+	// .map__list
+	&__list {}
+	// .map__list-item
+	&__list-item {
+		display: flex;
+		align-items: center;
+		&:not(:last-child){
+			margin-bottom: 23px;
+		}
+	}
+	// .map__icon
+	&__icon {
+		position: relative;
+		width: 30px;
+		height: 34px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin-right: 18px;
+	}
+	// .map__check
+	&__check{
+		position: absolute;
+		top: 0;
+		left: -13px;
+		width: 19px;
+		height: 19px;
+		border-radius: 50%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		background: $whiteColor;
+		&.map__check--purple{
+			border: 1px solid #C49FDB;
+			&::before{
+				color: #C49FDB;
+			}
+		}
+		&.map__check--orange{
+			border: 1px solid #E4BA87;
+			&::before{
+				color: #E4BA87;
+			}
+		}
+		&.map__check--green{
+			border: 1px solid #9DC197;
+		}
+		&.map__check--pink{
+			border: 1px solid #D88CB0;
+		}
+		&.map__check--blue{
+			border: 1px solid #83ABC8;
+		}
+		&.map__check--green-dark{
+			border: 1px solid #82C3B8;
+		}
+		&.map__check--azure{
+			border: 1px solid #82C3B8;
+		}
+		&.map__check--green-dark{
+			border: 1px solid #BBBD65;
+		}
+		&.map__check--red{
+			border: 1px solid #F19797;
+		}
+		&::before{
+			font-size: 7px;
+		}
+	}
+	// .map__text
+	&__text {
+		font-weight: 500;
+		& span{
+			font-weight: 300;
+		}
+	}
+	// .map__location
+	&__location {
+		flex-shrink: 0;
+		width: calc(100% - 411px - 70px);
+	}
+}
+.map .block-heading {
+	margin-bottom: 47px;
+	// .block-heading__title
+	&__title {}
+}
+
+@media screen and (max-width: map-get($breakpoints, 'lg')) {
+	.map{
+		padding: 40px 0 40px;
+	}
+	.map__info{
+		padding: 30px 0px 30px 15px;
+	}
+	.map__body{
+		flex-direction: column;
+		align-items: stretch;
+		padding: 0 15px;
+		width: 100%;
+	}
+	.map__location{
+		height: 300px;
+		width: 100%;
+		flex: 1 1 100%;
+		& .ymaps-2-1-79-map{
+			height: 350px !important;
+		}
+	}
+}
+@media screen and (max-width: map-get($breakpoints, 'md')) {
+	.map .block-heading{
+		margin-bottom: 25px;
+	}
+}

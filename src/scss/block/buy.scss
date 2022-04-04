@@ -1,0 +1,137 @@
+/* BUY */
+.buy {
+	padding: 83px 0 72px;
+	// .buy__wrapper
+	&__wrapper {
+		position: relative;
+		padding-top: 112px;
+	}
+	// .buy__image
+	&__image {
+		position: absolute;
+		width: 62.5vw;
+		height: 725px;
+		top: 0;
+		right: 0;
+		border-radius: 50px 0px 0px 50px;
+		overflow: hidden;
+		& img{
+			height: 100%;
+			max-width: 100%;
+			width: 100%;
+			border-radius: inherit;
+		}
+	}
+	// .buy__button
+	&__button {
+		max-width: 342px;
+		margin-left: 65px;
+	}
+}
+.buy-info {
+	max-width: 847px;
+	padding: 90px 95px 95px;
+	background: #EEF5F8;
+	border-radius: 30px;
+	position: relative;
+	z-index: 2;
+	&__wrap{
+		position: relative;
+		&::before{
+			content: "";
+			position: absolute;
+			background: url('../img/buy/bg-left.svg');
+			background-repeat: no-repeat;
+			width: 213px;
+			height: 205px;
+			top: -130px;
+			left: -120px;
+			z-index: -1;
+		}
+	}
+	// .buy-info__head
+	&__head {
+		padding-left: 65px;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+	}
+	// .buy-info__text
+	&__text {
+		font-size: 22px;
+		line-height: math.div(32, 22) * 100%;
+		font-weight: 500;
+		margin-bottom: 43px;
+	}
+	// .buy-info__list
+	&__list {
+		margin-bottom: 67px;
+		& li {
+			padding-left: 64px;
+			position: relative;
+			font-size: 20px;
+			&:not(:last-child){
+				margin-bottom: 35px;
+			}
+		}
+		& li::before{
+			content: url('../img/buy/check.svg');
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			left: 0;
+		}
+	}
+}
+.buy-info .block-heading {
+	text-align: left;
+	margin-bottom: 45px;
+	// .block-heading__title
+	&__title {}
+	// .block-heading__subtitle
+	&__subtitle {}
+}
+
+@media screen and (max-width: map-get($breakpoints, 'lg')) {
+	.buy{
+		padding: 40px 0;
+	}
+	.buy-info{
+		max-width: 100%;
+		padding: 35px 15px;
+	}
+	.buy-info .block-heading{
+		margin-bottom: 25px;
+	}
+	.buy-info__text {
+		margin-bottom: 30px;
+	}
+	.buy-info__list {
+		margin-bottom: 35px;
+	}
+	.buy__button{
+		max-width: 100%;
+		margin: 0;
+	}
+	.buy__image{
+		display: none;
+	}
+	.buy__wrapper{
+		padding-top: 0;
+	}
+	.buy-info__head{
+		padding: 0;
+	}
+}
+@media screen and (max-width: map-get($breakpoints, 'md')) {
+	.buy-info__text{
+		font-size: 18px;
+		margin-bottom: 20px;
+	}
+	.buy-info__list li {
+		font-size: 18px;
+	}
+	.buy-info__list li:not(:last-child) {
+		margin-bottom: 25px;
+	}
+}

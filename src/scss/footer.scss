@@ -1,0 +1,124 @@
+.footer {
+	background: #474440;
+	padding: 17px 0 24px;
+	color: $whiteColor;
+	// .footer__body
+	&__body {
+		max-width: 1253px;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		flex-wrap: wrap;
+		row-gap: 20px;
+		column-gap: 20px;
+	}
+	// .footer__logo
+	&__logo {
+		display: flex;
+		align-items: center;
+		gap: 15px 55px;
+		flex-wrap: wrap;
+		& .logo{
+			width: 193px;
+			height: auto;
+		}
+	}
+	// .footer__text
+	&__text {
+		max-width: 300px;
+		line-height: math.div(24, 16) * 100%;
+		font-weight: 300;
+		margin: 6px 0 0 0px;
+	}
+	// .footer__phone
+	&__phone {
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+		gap: 15px 62px;
+	}
+	// .footer__btn
+	&__btn {
+		font-size: 19px;
+		line-height: math.div(23, 19) * 100%;
+		color: $brownColor;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding: 15px;
+		border: 1px solid $brownColor;
+		border-radius: 30px;
+		min-width: 272px;
+		min-height: 56px;
+		transition: all .2s ease 0s;
+		&:hover{
+			background: $brownColor;
+			color: $whiteColor;
+		}
+	}
+	// .footer__copy
+	&__copy{
+		padding: 34px 0 0;
+		& span{
+			display: block;
+			font-size: 13px;
+			line-height: math.div(15, 13) * 100%;
+			font-weight: 300;
+			color: rgba(255, 255, 255, 0.54);
+		}
+	}
+	// .footer__politic-link
+	&__politic-link{
+		display: inline-block;
+		border-bottom: 0.5px solid rgba(255, 255, 255, 0.54);
+	}
+
+}
+.phone-footer {
+	// .phone-footer__number
+	&__number {
+		margin: 6px 0px 0 0;
+	}
+	// .phone-footer__link
+	&__link {
+		display: inline-block;
+		font-size: 19px;
+		line-height: math.div(20, 19) * 100%;
+		font-weight: 700;
+		margin-bottom: 4px;
+		cursor: pointer;
+		color: $whiteColor;
+		transition: all .2s ease 0s;
+		&:hover{
+			color: $brownColor;
+		}
+	}
+	// .phone-footer__label
+	&__label {
+		display: block;
+		line-height: math.div(21, 16) * 100%;
+		font-weight: 300;
+	}
+	// .phone-footer__button
+	&__button {}
+}
+
+@media screen and (max-width: map-get($breakpoints, 'md')) {
+	.footer__text{
+		margin: 0;
+		max-width: 100%;
+	}
+	.footer__phone {
+		width: 100%;
+	}
+	.phone-footer__button{
+		flex: 1 1 100%;
+	}
+	.footer__btn{
+		min-width: 100%;
+	}
+	.footer__copy{
+		padding: 25px 0 0;
+		text-align: center;
+	}
+}

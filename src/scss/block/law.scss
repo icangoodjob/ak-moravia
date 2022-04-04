@@ -1,0 +1,99 @@
+/* LAW */
+.law {
+	padding: 132px 0 113px;
+	background: #EEF5F8;
+	position: relative;
+	&::before{
+		content: url('../img/law/icon-bottom.svg');
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		transform: translateY(100%);
+	}
+	// .law__body
+	&__body {
+		max-width: 1256px;
+		margin: 0 auto;
+		display: flex;
+		gap: 0 170px;
+	}
+	// .law__column
+	&__column {
+		flex: 0 1 50%;
+	}
+	// .law__item
+	&__item {}
+}
+.item-law {
+	border-bottom: 1px solid #CFDFE7;
+	padding: 20px 0 20px;
+	min-height: 133px;
+	display: inline-flex;
+	align-items: center;
+	&:first-child {
+		border-top: 1px solid #CFDFE7;
+	}
+	// .item-law__icon
+	&__icon{
+		align-items: flex-start;
+		&::before{
+			color: $brownColor;
+			font-size: 32px;
+			width: 23px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			margin-right: 13px;
+		}
+	}
+	// .item-law__text
+	&__text {
+		font-size: 19px;
+		line-height: math.div(25, 19) * 100%;
+		& span{
+			border-bottom: 1px solid $brownColor;
+		}
+	}
+}
+
+.law .block-heading {
+	margin-bottom: 80px;
+	// .block-heading__title
+	&__title {}
+	// .block-heading__subtitle
+	&__subtitle {}
+}
+
+@media screen and (max-width: map-get($breakpoints, 'lg')) {
+	.law{
+		padding: 80px 0;
+	}
+	.law .block-heading{
+		margin-bottom: 30px;
+	}
+	.law__body{
+		gap: 0 40px;
+	}
+}
+@media screen and (max-width: map-get($breakpoints, 'md')) {
+	.law__body{
+		flex-wrap: wrap;
+	}
+	.law__column{
+		flex: 1 1 100%;
+	}
+	.item-law{
+		display: flex;
+		width: 100%;
+		min-height: 90px;
+	}
+	.law__column--two .item-law:first-child{
+		border-top: none;
+	}
+	.item-law__text{
+		font-size: 17px;
+	}
+	.law .block-heading{
+		margin-bottom: 25px;
+	}
+}

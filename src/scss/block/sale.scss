@@ -1,0 +1,117 @@
+/* SALE */
+.sale {
+	background: #F0DDC8;
+	position: relative;
+	margin-bottom: 70px;
+	&::before{
+		content: url('../img/sale/triangle-bottom.svg');
+		position: absolute;
+		bottom: 1px;
+		left: 0;
+		transform: translateY(100%);
+	}
+	// .sale__wrapper
+	&__wrapper {
+		overflow: hidden;
+		padding: 60px 0 65px;
+		position: relative;
+		&::before{
+			content: url('../img/sale/triangle-top.svg');
+			position: absolute;
+			top: -1px;
+			left: 0;
+			z-index: 2;
+		}
+	}
+	// .sale__body
+	&__body {
+		position: relative;
+	}
+	// .sale__count
+	&__count {
+		position: absolute;
+		top: -55px;
+		left: -32px;
+		width: 324px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding: 16px;
+		font-size: 81px;
+		color: $whiteColor;
+		font-weight: 900;
+		& p{
+			z-index: 4;
+		}
+		&::before{
+			content: "";
+			position: absolute;
+			top: -4px;
+			background: url('../img/sale/count-bg.png');
+			background-repeat: no-repeat;
+			width: 324px;
+			height: 324px;
+		}
+	}
+	// .sale__content
+	&__content {
+		padding-left: 358px;
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+		gap: 20px 73px;
+	}
+	// .sale__info
+	&__info {}
+	// .sale__label
+	&__label {
+		display: inline-block;
+		margin-bottom: 21px;
+		font-size: 21px;
+		line-height: math.div(25, 21) * 100%;
+		font-weight: 300;
+	}
+	// .sale__title
+	&__title {
+		font-size: 36px;
+		line-height: math.div(42, 36) * 100%;
+	}
+	// .sale__button
+	&__button {
+		flex: 1 1 auto;
+		max-width: 267px;
+		min-width: 200px;
+	}
+}
+
+@media screen and (max-width: map-get($breakpoints, 'lg')) {
+	.sale {
+		margin-bottom: 40px;
+	}
+	.sale__count{
+		font-size: 40px;
+		top: -70px;
+	}
+	.sale__count::before{
+		width: 250px;
+		height: 200px;
+		background-size: 250px 200px;
+		top: -70px;
+	}
+	.sale__content{
+		padding: 60px 0 0 0;
+		position: relative;
+		z-index: 2;
+	}
+}
+@media screen and (max-width: map-get($breakpoints, 'md')) {
+	.sale__title{
+		font-size: 26px;
+	}
+	.sale__label{
+		margin-bottom: 12px;
+	}
+	.sale__button{
+		max-width: 100%;
+	}
+}

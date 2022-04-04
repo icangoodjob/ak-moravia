@@ -1,0 +1,219 @@
+/* PLACES */
+.places {
+	// .places__include
+	&__include {
+		text-align: center;
+		& p {
+			font-size: 22px;
+			line-height: math.div(31, 22) * 100%;
+			margin-bottom: 25px;
+			font-weight: 500;
+		}
+	}
+}
+.include-places {
+	padding: 40px 0 62px;
+	// .include-places__list
+	&__list {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-wrap: wrap;
+		row-gap: 10px;
+		& li{
+			font-size: 20px;
+			line-height: math.div(23, 20) * 100%;
+			position: relative;
+			font-weight: 300;
+			&:not(:last-child){
+				margin-right: 22px;
+			}
+		}
+		& li + li {
+			padding-left: 23px;
+			&::before{
+				content: "";
+				position: absolute;
+				top: 50%;
+				transform: translateY(-50%);
+				left: 0;
+				width: 3px;
+				height: 3px;
+				border-radius: 50%;
+				background: $mainColor;
+			}
+		}
+	}
+}
+
+.places {
+	background: url('../img/place/bg-right.png');
+	background-repeat: no-repeat;
+	background-position: 100% 31.3%;
+	padding: 71px 0 28px;
+	& .container{
+		max-width: 1473px;
+	}
+	// .places__wrapper
+	&__wrapper {}
+	// .places__body
+	&__body {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		grid-template-rows: auto;
+		gap: 43px 95px;
+	}
+	// .places__item
+	&__item {
+	}
+}
+.item-places {
+	position: relative;
+	&:nth-child(1) .item-places__image{
+		border-radius: 10px 10px 100px 10px;
+	}
+	&:nth-child(2) .item-places__image{
+		border-radius: 10px 10px 10px 100px;
+	}
+	&:nth-child(3) .item-places__image{
+		border-radius: 10px 100px 10px 10px;
+	}
+	&:nth-child(4) .item-places__image{
+		border-radius: 100px 10px 10px 10px;
+	}
+	&:nth-child(3) {
+		&::before{
+			content: url('../img/place/bg-left.png');
+			position: absolute;
+			top: -6%;
+			left: -140px;
+		}
+	}
+	&:nth-child(4) {
+		&::before{
+			content: url('../img/place/bg-bottom.png');
+			position: absolute;
+			bottom: -120px;
+			right: -142px;
+			z-index: 4;
+		}
+	}
+	// .item-places__image
+	&__image {
+		position: relative;
+		padding-bottom: math.div(453, 674) * 100%;
+		overflow: hidden;
+		z-index: 5;
+		&::before{
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: linear-gradient(50.47deg, #000000 -8.19%, rgba(0, 0, 0, 0) 45.92%);
+			z-index: 2;
+		}
+		& img{
+			border-radius: inherit;
+		}
+	}
+	// .item-places__content
+	&__content {
+		position: absolute;
+		z-index: 10;
+		width: 100%;
+		bottom: 0;
+		padding: 39px 34px;
+	}
+	// .item-places__label
+	&__label {
+		font-size: 21px;
+		line-height: math.div(29, 21) * 100%;
+		font-weight: 600;
+		display: block;
+		padding: 0 7px;
+		background: $brownColor;
+		color: $whiteColor;
+		max-width: max-content;
+	}
+	// .item-places__text
+	&__text {
+		margin: 13px 0 0 8px;
+		max-width: 310px;
+		font-size: 18px;
+		line-height: math.div(27, 18) * 100%;
+		color: $whiteColor;
+	}
+}
+
+@media screen and (max-width: map-get($breakpoints, 'xl')) {
+	.places__body{
+		gap: 30px;
+	}
+	.item-places__image::before {
+		background: linear-gradient(50.47deg, #000000 -8.19%, rgba(0, 0, 0, 0) 90.92%);
+	}
+}
+@media screen and (max-width: map-get($breakpoints, 'lg')) {
+	.places{
+		padding: 40px 0 20px;
+		background-position: 100% 12%;
+	}
+	.include-places {
+		padding: 10px 0 30px;
+	}
+	.places__include p{
+		margin-bottom: 15px;
+	}
+	.item-places:nth-child(3)::before,
+	.item-places:nth-child(4)::before {
+		content: none;
+	}
+	.places__body {
+		grid-template-columns: 1fr;
+		gap: 20px;
+	}
+	.item-places__image{
+		padding-bottom: 0;
+		height: 350px;
+		& img{
+			position: static;
+		}
+	}
+	.item-places:nth-child(2){
+		order: 2;
+	}
+	.item-places:nth-child(4){
+		order: 3;
+	}
+}
+@media screen and (max-width: map-get($breakpoints, 'md')) {
+	.include-places__list{
+		flex-direction: column;
+	}
+	.include-places__list li:not(:last-child){
+		margin: 0;
+	}
+	.include-places__list li + li {
+		padding: 0;
+		&::before{
+			content: none;
+		}
+	}
+	.places__include p{
+		font-size: 18px;
+	}
+	.include-places__list li{
+		font-size: 17px;
+	}
+	.item-places__label{
+		font-size: 19px;
+	}
+	.item-places__text{
+		font-size: 17px;
+	}
+	.item-places__text{
+		margin: 10px 0 0;
+	}
+}

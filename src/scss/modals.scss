@@ -1,0 +1,242 @@
+.modal {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.78);
+	visibility: hidden;
+	opacity: 0;
+	transition: visibility .2s ease 0s, opacity .2s ease 0s;
+	z-index: 30;
+	overflow-y: auto;
+	overflow-x: hidden;
+	&.open-modal{
+		visibility: visible;
+		opacity: 1;
+		& .modal__content{
+			opacity: 1;
+			transform: translate(0px, 0%) rotateX(0deg);
+		}
+	}
+}
+
+.modal {
+	// .modal__content
+	&__content{
+		max-width: 674px;
+		background: $whiteColor;
+		border-radius: 20px;
+		position: relative;
+		padding: 52px 93px 66px;
+		text-align: center;
+		color: $mainColor;
+		transform: translate(0px, -100%) rotateX(45deg);
+		opacity: 0;
+		transition: all .5s ease 0s;
+		&::before{
+			content: url('../img/modal/icon-top.svg');
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+		&::after{
+			content: url('../img/modal/icon-bottom.svg');
+			position: absolute;
+			bottom: 0;
+			right: 0;
+		}
+	}
+	// .modal__body
+	&__body {
+		min-height: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 30px 10px;
+	}
+	// .modal__form
+	&__form {}
+	// .modal__close
+	&__close{
+		width: 30px;
+		height: 30px;
+		background: transparent;
+		position: absolute;
+		top: 22px;
+		right: 22px;
+		transition: all .2s ease-in-out 0s;
+		& svg path {
+			transition: all .2s ease-in-out 0s;
+		}
+		&:hover svg path{
+			fill: $brownColor;
+		}
+	}
+	// .modal__title
+	&__title {
+		font-size: 36px;
+		line-height: math.div(41, 36) * 100%;
+		margin: 0 0 13px;
+	}
+	// .modal__subtitle
+	&__subtitle {
+		font-size: 17px;
+		line-height: math.div(27, 17) * 100%;
+		margin: 0 0 30px;
+	}
+}
+.form {
+	// .form__items
+	&__items{
+		display: flex;
+		flex-direction: column;
+		margin-bottom: 32px;
+	}
+	// .form__item
+	&__item {
+		max-width: 292px;
+		width: 100%;
+		margin: 0 auto;
+		position: relative;
+		&:not(:last-child){
+			margin-bottom: 28px;
+		}
+		&.focus .form__label{
+			top: -10px;
+			left: 24px;
+			font-size: 14px;
+			transform: none;
+		}
+	}
+	// .form__label
+	&__label {
+		position: absolute;
+		top: 50%;
+		transform: translate(0, -50%);
+		left: 27px;
+		font-size: 18px;
+		line-height: math.div(23, 18) * 100%;
+		transition: all .3s ease-in-out 0s;
+		padding: 0 10px;
+		background: $whiteColor;
+		z-index: 2;
+		&.required{
+			padding-right: 15px;
+			&::before{
+				content: "*";
+				position: absolute;
+				top: -3px;
+				right: 5px;
+				font-size: 16px;
+				color: $brownColor;
+			}
+		}
+	}
+	// .form__input
+	&__input {
+		width: 100%;
+		background: $whiteColor;
+		border: 1px solid $brownColor;
+		min-height: 54px;
+		padding: 14px 27px;
+		border-radius: 30px;
+		font-size: 18px;
+		line-height: math.div(23, 18) * 100%;
+		color: $mainColor;
+	}
+	// .form__button
+	&__button {
+		width: 100%;
+	}
+}
+// Checkbox
+.checkbox-item{
+	position: relative;
+	max-width: 426px;
+	margin: 0 auto;
+	& label{
+		cursor: pointer;
+		display: flex;
+		align-items: flex-start;
+	}
+}
+.real-checkbox {
+	width: 1px;
+	height: 1px;
+	position: absolute;
+	opacity: 0;
+	visibility: hidden;
+	z-index: -1;
+	overflow: hidden;
+	border: 0;
+	padding: 0;
+	clip: rect(0,0,0,0);
+	margin: -1px;
+}
+.custom-checkbox {
+	position: relative;
+	display: inline-block;
+	overflow: hidden;
+	width: 28px;
+	flex: 0 0 28px;
+	height: 28px;
+	border-radius: 50%;
+	border: 1px solid rgba(0, 0, 0, 0.43);
+	transition: .2s ease-in;
+	cursor: pointer;
+}
+.custom-checkbox::before {
+	content: "";
+	display: block;
+	width: 14px;
+	height: 14px;
+	position: absolute;
+	background: url('../img/modal/check.svg');
+	background-size: 14px 14px;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%,-50%) scale(0);
+	z-index: 2;
+	transition: .2s ease-in;
+}
+.checkbox-item__text{
+	text-align: left;
+	display: inline-block;
+	font-size: 13px;
+	line-height: math.div(18, 13) * 100%;
+	color: rgba(40, 40, 40, 0.62);
+	margin-left: 11px;
+}
+.form__link{
+	border-bottom: 1px solid rgba(40, 40, 40, 0.62);
+}
+.real-checkbox:checked + .custom-checkbox::before {
+	transform: translate(-50%,-50%) scale(1);
+}
+.real-checkbox:checked + .custom-checkbox {
+	border: 1px solid $brownColor;
+}
+
+@media screen and (max-width: map-get($breakpoints, 'sm')) {
+	.modal__content{
+		padding: 50px 20px;
+	}
+	.modal__title{
+		font-size: 26px;
+		line-height: math.div(30, 26) * 100%;
+	}
+	.modal__subtitle{
+		margin-bottom: 20px;
+	}
+	.modal__close{
+		top: 16px;
+		right: 16px;
+	}
+	.form__item{
+		max-width: 100%;
+	}
+	.checkbox-item{
+		max-width: 100%;
+	}
+}

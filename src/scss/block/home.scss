@@ -1,0 +1,119 @@
+.home {
+	background: #EDFAFF url('../img/home/bg.png');
+	background-size: cover;
+	background-repeat: no-repeat;
+	padding: 131px 0 272px;
+	margin-bottom: 80px;
+	// .home__info
+	&__info {
+		display: flex;
+		flex-direction: column;
+		max-width: 771px;
+		position: relative;
+		z-index: 5;
+	}
+	// .home__title
+	&__title {
+		font-size: 40px;
+		line-height: math.div(52, 40) * 100%;
+		margin: 0 0 11px;
+	}
+	// .home__subtitle
+	&__subtitle {
+		font-size: 40px;
+		line-height: math.div(46, 40) * 100%;
+		font-weight: 900;
+	}
+	// .home__inner
+	&__inner {
+		padding: 77px 0 94px;
+		display: flex;
+		align-items: flex-start;
+		flex-wrap: wrap;
+		gap: 15px 54px;
+	}
+	// .home__list
+	&__list {
+	}
+	// .home__list-item
+	&__list-item {
+		padding-left: 16px;
+		position: relative;
+		font-size: 19px;
+		line-height: math.div(30, 19) * 100%;
+		font-weight: 500;
+		&:not(:last-child){
+			margin-bottom: 27px;
+		}
+		&::before{
+			content: "";
+			position: absolute;
+			top: 50%;
+			transform: translate(0, -50%);
+			left: 0;
+			width: 3px;
+			height: 3px;
+			border-radius: 50%;
+			background: $mainColor;
+		}
+	}
+	// .home__button
+	&__button {
+		max-width: 331px;
+	}
+}
+
+@media screen and (max-width: map-get($breakpoints, 'xxl')) {
+	.home{
+		background-position: 50% bottom;
+	}
+}
+@media screen and (max-width: map-get($breakpoints, 'lg')) {
+	.home{
+		padding: 130px 0 100px;
+		position: relative;
+		background-position: 0 100%;
+		margin-bottom: 40px;
+		&::before{
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: rgba(255, 255, 255, 0.5);
+			z-index: 0;
+		}
+	}
+	.home__info{
+		max-width: 100%;
+		position: relative;
+		z-index: 5;
+	}
+	.home__title {
+		font-size: 28px;
+	}
+	.home__subtitle {
+		font-size: 26px;
+	}
+	.home__inner{
+		padding: 40px 0;
+	}
+	.home__list-item:not(:last-child) {
+		margin-bottom: 15px;
+	}
+}
+@media screen and (max-width: map-get($breakpoints, 'md')) {
+	.home{
+		background-position: 55% 100%;
+	}
+	.home__button{
+		max-width: 100%;
+	}
+	.home__title {
+		font-size: 26px;
+	}
+	.home__subtitle {
+		font-size: 24px;
+	}
+}

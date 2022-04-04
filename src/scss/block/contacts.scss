@@ -1,0 +1,133 @@
+/* CONTACTS */
+.contacts {
+	padding: 142px 0 101px;
+	// .contacts__body
+	&__body {
+		display: flex;
+		gap: 20px 88px;
+	}
+	// .contacts__item
+	&__item {
+		flex: 0 1 50%;
+		border-radius: 30px 0px 0px 30px;
+		&:first-child{
+			border-radius: 0px 30px 30px 0px;
+		}
+	}
+}
+.item-contacts {
+	display: flex;
+	flex-direction: column;
+	// .item-contacts__content
+	&__content {
+		flex: 1 1 auto;
+		display: flex;
+		flex-direction: column;
+		text-align: center;
+		padding: 49px 15px;
+		background: #FFF7EF;
+		box-shadow: 0 13px 0 0  rgba(0, 0, 0, 0.11);
+		position: relative;
+		z-index: 2;
+	}
+	// .item-contacts__title
+	&__title {
+		font-size: 23px;
+		line-height: math.div(27, 23) * 100%;
+		font-weight: 600;
+		margin-bottom: 26px;
+	}
+	// .item-contacts__phone
+	&__phone {
+		margin-bottom: 19px;
+	}
+	// .item-contacts__icon
+	&__icon {
+		margin-bottom: 11px;
+		display: block;
+		&::before{
+			color: #F2DAC1;
+			font-size: 24px;
+		}
+	}
+	// .item-contacts__label
+	&__label {
+		font-weight: 400;
+		font-size: 19px;
+		line-height: math.div(25, 19) * 100%;
+	}
+	// .item-contacts__address
+	&__address {
+		margin-bottom: 27px;
+	}
+	// .item-contacts__link
+	&__link {
+		margin-top: auto;
+		display: inline-block;
+		font-size: 17px;
+		line-height: math.div(23, 17) * 100%;
+		color: $brownColor;
+		& span{
+			border-bottom: 1px solid $brownColor;
+		}
+	}
+	// .item-contacts__map
+	&__map {
+		height: 407px;
+	}
+}
+.contacts .block-heading {
+	margin-bottom: 53px;
+	// .block-heading__title
+	&__title {}
+}
+
+@media screen and (max-width: map-get($breakpoints, 'lg')) {
+	.contacts{
+		padding: 80px 0;
+	}
+	.contacts .block-heading{
+		margin-bottom: 30px;
+	}
+	.item-contacts__map{
+		height: 300px;
+		& .ymaps-2-1-79-map{
+			height: 300px !important;
+		}
+	}
+	.contacts__body{
+		gap: 20px;
+	}
+	.item-contacts__content{
+		padding: 25px 15px;
+	}
+}
+@media screen and (max-width: map-get($breakpoints, 'md')) {
+	.item-contacts__title{
+		font-size: 18px;
+		margin-bottom: 20px;
+	}
+	.item-contacts__label{
+		font-size: 16px;
+	}
+	.item-contacts__icon{
+		margin-bottom: 6px;
+	}
+	.item-contacts__phone{
+		margin-bottom: 12px;
+	}
+	.item-contacts__address{
+		margin-bottom: 20px;
+	}
+	.contacts .block-heading{
+		margin-bottom: 25px;
+	}
+}
+@media screen and (max-width: map-get($breakpoints, 'sm')) {
+	.contacts__body{
+		flex-wrap: wrap;
+	}
+	.contacts__item{
+		flex: 1 1 100%;
+	}
+}
